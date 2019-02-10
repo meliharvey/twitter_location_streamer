@@ -6,10 +6,10 @@ import pandas as pd
 import tweepy
 
 # create an account to get these keys and tokens
-consumer_key = 'EP9URr20HSr4ekZ9LPfMf3eGn'
-consumer_secret = 'Ehye5CVRd87QXExhbmeRvyvnOd6Qm8jhM1UeLdLNcloXDSaaNt'
-access_token = '768411984-5uF4Mt9YQOy6lH6g4FWB8qNVPO46uQvTw0EJLB9W'
-access_token_secret = 'v627MwIl7M5P2uP7QoQJ8AS8pywhiHSJG1NBfn3lVwIF2'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
