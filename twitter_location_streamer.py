@@ -6,16 +6,16 @@ import pandas as pd
 import tweepy
 
 # create an account to get these keys and tokens
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
+consumer_key = 'EP9URr20HSr4ekZ9LPfMf3eGn'
+consumer_secret = 'Ehye5CVRd87QXExhbmeRvyvnOd6Qm8jhM1UeLdLNcloXDSaaNt'
+access_token = '768411984-5uF4Mt9YQOy6lH6g4FWB8qNVPO46uQvTw0EJLB9W'
+access_token_secret = 'v627MwIl7M5P2uP7QoQJ8AS8pywhiHSJG1NBfn3lVwIF2'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-location = [-74.36,40.45,-73.45,41] #[minimum longitude, minimum latitude, maximum longitude, maximum latitude]
+location = [-74.29,40.46,-73.71,40.93] #[minimum longitude, minimum latitude, maximum longitude, maximum latitude]
 has_coordinates = True # setting this to false will download all tweets within the area, even if they don't have specific coordinates
 
 filename = 'tweets.csv'
@@ -40,8 +40,7 @@ def add_tweet(data):
 
     # create the fields and values
     df.loc[0,'id'] = data.id_str
-    df.loc[0,'date'] = data.created_at.date
-    df.loc[0,'time'] = data.created_at.time
+    df.loc[0,'datetime'] = utc_to_local(data.created_at).strftime('%B %d, %Y %H:%M:%S')
     df.loc[0,'year'] = utc_to_local(data.created_at).year
     df.loc[0,'month'] = utc_to_local(data.created_at).month
     df.loc[0,'day_of_month'] = utc_to_local(data.created_at).day
